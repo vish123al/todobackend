@@ -6,23 +6,23 @@ node {
         shell 'make test'
         
         stage 'Build application artefacts'
-        sh 'make build'
+        shell 'make build'
 
         stage 'Create release environment and run acceptance tests'
-        sh 'make release'
+        shell 'make release'
 
         stage 'Tag and publish release image'
-        sh "make tag latest \$(git rev-parse --short HEAD) \$(git tag --points-at HEAD)"
-        sh "make buildtag master \$(git tag --points-at HEAD)"
+        shell "make tag latest \$(git rev-parse --short HEAD) \$(git tag --points-at HEAD)"
+        shell "make buildtag master \$(git tag --points-at HEAD)"
         withEnv(["DOCKER_USER=${DOCKER_USER}",
                  "DOCKER_PASSWORD=${DOCKER_PASSWORD}",
                  "DOCKER_EMAIL=${DOCKER_EMAIL}"]) {    
-            sh "make login"
+            shell "make login"
         }
-        sh "make publish"
+        shell "make publish"
 
         stage 'Deploy release'
-        sh "printf \$(git rev-parse --short HEAD) > tag.tmp"
+        shell "printf \$(git rev-parse --short HEAD) > tag.tmp"
         def imageTag = readFile 'tag.tmp'
         build job: DEPLOY_JOB, parameters: [[
             $class: 'StringParameterValue',
@@ -35,7 +35,7 @@ node {
         step([$class: 'JUnitResultArchiver', testResults: '**/reports/*.xml'])
 
         stage 'Clean up'
-        sh 'make clean'
-        sh 'make logout'
+        shell 'make clean'
+        shell 'make logout'
     }
 }
