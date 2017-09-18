@@ -1,5 +1,5 @@
 <testsuites name="Mocha Tests">
-<testsuite name="Cross Origin Requests" tests="2" failures="0" skipped="0" timestamp="Mon, 11 Apr 2016 10:07:14 GMT" time="0.177">
+<testsuite name="Cross Origin Requests" tests="2" failures="0" skipped="0" timestamp="Mon, 11 Apr 2017 10:07:14 GMT" time="0.177">
 <testcase classname="Cross Origin Requests" name="should return the correct CORS headers" time="0.156"/>
 <testcase classname="Cross Origin Requests" name="should allow all origins" time="0.002"/>
 </testsuite>
