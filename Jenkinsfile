@@ -32,6 +32,7 @@ node {
     }
     finally {
         stage 'Collect test reports'
+        shell ' cd /reports touch *.xml'
         step([$class: 'JUnitResultArchiver', testResults: '**/reports/*.xml'])
 
         stage 'Clean up'
