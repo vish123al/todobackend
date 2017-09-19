@@ -32,8 +32,7 @@ node {
     }
     finally {
         stage 'Collect test reports'
-        shell 'mvn clean test'
-        shell ' cd /reports touch *.xml'
+        
        
 
         stage 'Clean up'
