@@ -3,7 +3,7 @@ node {
 
     try {
         stage 'Run unit/integration tests'
-        shell 'make test'
+        sh 'make test'
         
         stage 'Build application artefacts'
         shell 'make build'
