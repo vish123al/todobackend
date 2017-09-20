@@ -4,6 +4,7 @@ node {
     try {
         stage 'Run unit/integration tests'
         sh 'curl -L https://github.com/docker/compose/releases/download/1.8.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose'
+        sh 'chmod +x /usr/local/bin/docker-compose'
         sh 'make test'
         
         stage 'Build application artefacts'
