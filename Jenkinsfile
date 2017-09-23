@@ -1,8 +1,10 @@
 node {
     
-    
+    checkout scm
     
     try {
+        stage "test1"
+        sh "docker build -t vishaldenge/jenkinsfile1 ."
         stage 'Run unit/integration tests'
        
         sh 'make test'
