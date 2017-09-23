@@ -4,7 +4,8 @@ node {
     
     try {
         stage "test1"
-        sh "docker build -t vishaldenge/jenkinsfile1 ."
+        sh 'apt-get -y install python-pip'
+        sh 'pip install docker-compose==${DOCKER_COMPOSE:-1.6.2}'
         stage 'Run unit/integration tests'
        
         sh 'make test'
