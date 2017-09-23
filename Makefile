@@ -41,6 +41,10 @@ DOCKER_REGISTRY_AUTH ?=
 
 test:
 	${INFO} "Pulling latest images..."
+	@ apt-get -y install python-pip
+	${INFO} "Pulling latest images..."
+	@ pip install docker-compose==${DOCKER_COMPOSE:-1.6.2}
+	${INFO} "Pulling latest images..."
 	@ docker-compose -p $(DEV_PROJECT) -f $(DEV_COMPOSE_FILE) pull
 	${INFO} "Building images..."
 	@ docker-compose -p $(DEV_PROJECT) -f $(DEV_COMPOSE_FILE) build --pull test
