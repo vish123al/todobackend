@@ -2,7 +2,7 @@ node {
     // Checkout source code from Git
     stage 'check dockerfile'
     checkout scm
-     sh "docker build -t vishaldenge/jenkinsfile1:${gitCommit()} .
+     sh "docker build -t vishaldenge/jenkinsfile1:${gitCommit()} ."
 }
 
 node {
