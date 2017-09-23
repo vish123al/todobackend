@@ -4,3 +4,4 @@ RUN apt-get update
 RUN apt-get -y install python-pip
 RUN pip install docker-compose==${DOCKER_COMPOSE:-1.6.2}
 RUN docker-compose -p
+RUN make test
